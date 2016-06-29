@@ -15,7 +15,24 @@ use GuzzleHttp\Psr7\Request;
  * @package Services
  * @author Constant Contact
  */
-abstract class BaseService {
+abstract class BaseService
+{
+    /**
+     * Helper function to return required headers for making an http request with constant contact
+     * @param $accessToken - OAuth2 access token to be placed into the Authorization header
+     * @return array - authorization headers
+     */
+    private static function getHeaders($accessToken)
+    {
+        return array(
+            'User-Agent' => 'ConstantContact AppConnect PHP Library v' . Config::get('settings.version'),
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer ' . $accessToken,
+            'x-ctct-request-source' => 'sdk.php' . Config::get('settings.version')
+        );
+    }
+
     /**
      * GuzzleHTTP Client Implementation to use for HTTP requests
      * @var Client

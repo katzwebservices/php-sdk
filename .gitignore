@@ -23,3 +23,5 @@ composer.phar
 vendor/
 
 devFile.php
+
+standalone/vendor.zip

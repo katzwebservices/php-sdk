@@ -123,8 +123,8 @@ class Config {
         /**
          * Setting the version fo the application used in Rest Calls when setting the version header
          */
-        'settings' => array(
-            'version' => '3.x.x'
+        'settings'    => array(
+            'version'        => '2.1.4'
         ),
     );
 
